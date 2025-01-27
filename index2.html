@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malitha Yasas Halahakoon</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .profile-pic {
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .skill-icon {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .portfolio-item {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      max-height: 80%;
+      object-fit: contain;
+      animation: zoomIn 0.4s ease-out;
+    }
+
+    @keyframes zoomIn {
+      from { 
+        transform: scale(0.7); 
+        opacity: 0;
+      }
+      to { 
+        transform: scale(1); 
+        opacity: 1;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .modal-content {
+      margin-top: 10%;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      max-height: 80%;
+      object-fit: contain;
+      animation: zoomIn 0.4s ease-out;
+    }
+
+    .modal-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .modal-nav-prev {
+      left: 10px;
+    }
+
+    .modal-nav-next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-sans">
+  <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="flex justify-center items-center">
+        <img src="Images/Round.png" alt="Malitha Yasas Halahakoon" class="rounded-full w-48 h-48 object-cover profile-pic">
+      </div>
+      <div>
+        <h1 class="text-3xl font-bold">Malitha Yasas Halahakoon</h1>
+        <p class="text-gray-200 mt-2">Software Developer</p>
+        <div class="flex space-x-4 mt-4">
+          <!-- <a href="#" class="text-blue-300 hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a> -->
+          <a href="https://www.linkedin.com/in/malitha-halahakoon-7a702b21a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="text-blue-300 hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold">About Me</h2>
+      <p class="text-gray-200 mt-2">
+        I am a skilled software developer with expertise in web application development using Laravel and Vue.js. I excel at creating robust and efficient solutions, leveraging my strong understanding of both back-end and front-end technologies.
+      </p>
+    </div>
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold">Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+        <div class="flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code skill-icon">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          <span>Laravel</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code skill-icon">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          <span>Vue.js</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database skill-icon">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
+          <span>MariaDB</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-branch skill-icon">
+            <line x1="6" y1="3" x2="6" y2="15"></line>
+            <circle cx="18" cy="6" r="3"></circle>
+            <circle cx="6" cy="18" r="3"></circle>
+            <path d="M18 9a9 9 0 0 1-9 9"></path>
+          </svg>
+          <span>Git</span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div class="bg-gray-800 rounded-lg shadow-lg p-4">
+            <img src="Images/Capture1.png" alt="Project 1" class="w-full rounded-lg">
+            <h3 class="text-xl font-bold mt-2">Digital Government Maturity Model Assessment Tool</h3>
+            <p class="text-gray-300 mt-1">
+              Assess the digital maturity level of each Government Organization.
+            </p>
+            <br>
+             <a class="text-gray-300 mt-1" style="font-size: small;text-decoration: underline" href="https://github.com/Malitha1997/AssessmentToolDMM.git">
+              View code
+             </a>
+          </div>
+        <div class="bg-gray-800 rounded-lg shadow-lg p-4">
+          <img src="Images/Capture2.png" alt="Project 2" class="w-full rounded-lg">
+          <h3 class="text-xl font-bold mt-2">Digital Government Competency Assessment Tool</h3>
+          <p class="text-gray-300 mt-1">
+            Assess the digital maturity level of each Government Official.
+          </p>
+          <br>
+          <br>
+          <a class="text-gray-300 mt-1" style="font-size: small;text-decoration: underline" href="https://github.com/Malitha1997/CompetencyAssessmentTool.git">
+            View code
+          </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-4">
+          <img src="Images/Capture3.png" alt="Project 1" class="w-full rounded-lg">
+          <h3 class="text-xl font-bold mt-2">District Digital Readiness Index Dashboard</h3>
+          <p class="text-gray-300 mt-1">
+            Compare the districts by Readiness and data visualization in charts.
+          </p>
+          <br>
+          <br>
+          <br>
+          <a class="text-gray-300 mt-1" style="font-size: small;text-decoration: underline" href="https://github.com/Malitha1997/DDRI-Dashboard.git">
+            View code
+          </a>
+        </div>
+        <!-- <div class="portfolio-item bg-gray-800 rounded-lg shadow-lg p-4">
+          <img src="Capture2.png" alt="Project 2" class="w-full rounded-lg">
+          <h3 class="text-xl font-bold mt-2">Digital Government Competency Assessment Tool</h3>
+          <p class="text-gray-300 mt-1">
+            Assess the digital maturity level of each Government Official.
+          </p>
+        </div> -->
+      </div>
+    </div>
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-image-container">
+        <div class="modal-nav modal-nav-prev" onclick="changeImage(-1)">&#10094;</div>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-nav modal-nav-next" onclick="changeImage(1)">&#10095;</div>
+      </div>
+    </div>
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold">Contact</h2>
+      <div class="flex items-center space-x-2 mt-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span>malithayasas123@gmail.com</span>
+      </div>
+      <div class="flex items-center space-x-2 mt-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span>0711 491 492</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    let currentImageIndex = 0;
+    let modalImages = [];
+
+    function openModal(images) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      
+      modalImages = images;
+      currentImageIndex = 0;
+      
+      // Reset animations
+      modal.style.animation = 'none';
+      modalImg.style.animation = 'none';
+      
+      // Trigger reflow
+      void modal.offsetWidth;
+      void modalImg.offsetWidth;
+      
+      // Reapply animations
+      modal.style.animation = 'fadeIn 0.3s ease-in-out';
+      modalImg.style.animation = 'zoomIn 0.4s ease-out';
+      
+      modal.style.display = "block";
+      modalImg.src = modalImages[currentImageIndex];
+    }
+
+  function changeImage(direction) {
+    currentImageIndex = (currentImageIndex + direction + modalImages.length) % modalImages.length;
+    document.getElementById('modalImage').src = modalImages[currentImageIndex];
+  }
+
+  // Updated close function to ensure modal closes
+  function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = "none";
+  }
+
+  // Add event listener to close button
+  document.querySelector('.close').addEventListener('click', closeModal);
+
+  // Close the modal when clicking outside of the image
+  window.onclick = function(event) {
+    const modal = document.getElementById('imageModal');
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+  </script>
+</body>
+</html>
